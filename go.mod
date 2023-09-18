@@ -14,7 +14,7 @@ require (
 	github.com/khulnasoft-labs/utils v0.0.45
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/pkg/errors v0.9.1
-	github.com/sashabaranov/go-openai v1.15.2
+	github.com/sashabaranov/go-openai v1.15.3
 	github.com/spaolacci/murmur3 v1.1.0
 	github.com/stretchr/testify v1.8.4
 	golang.org/x/exp v0.0.0-20230801115018-d63ba01acd4b
