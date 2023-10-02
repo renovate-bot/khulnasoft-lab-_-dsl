@@ -36,8 +36,8 @@ github.com/khulnasoft-labs/gologger v1.1.11 h1:8kW1kaPdEMcIcnnYGg7B5za5U3NMMQzO4
 github.com/khulnasoft-labs/gologger v1.1.11/go.mod h1:uf59FwoW8zCJryikNSc5I0gmkNUqSkl4tRSCjpV6uBk=
 github.com/khulnasoft-labs/gostruct v0.0.0-20230802004306-fba060715063 h1:Ds+zcJjc2W2WeQ/h49wr0ojE2MgyJme0kwb9KM8x8zg=
 github.com/khulnasoft-labs/gostruct v0.0.0-20230802004306-fba060715063/go.mod h1:6d0VJzoQK3AeKyJ9ib6JWVyitS9tbT17n6zcTTbLYaU=
-github.com/khulnasoft-labs/mapcidr v1.1.2 h1:SU96hO3rAOKVJSqRzAYKTAPOqD1BS748N7ojqA2lops=
-github.com/khulnasoft-labs/mapcidr v1.1.2/go.mod h1:UkbBF8DjJhbFYiKgm/A6Eam1u9oij3ckeKB/5XMPyuY=
+github.com/khulnasoft-labs/mapcidr v1.1.3 h1:Vn9xUpOjifuWcMsOjHZ7vMsL3YwM5wG91Z6P5TGhaHs=
+github.com/khulnasoft-labs/mapcidr v1.1.3/go.mod h1:UkbBF8DjJhbFYiKgm/A6Eam1u9oij3ckeKB/5XMPyuY=
 github.com/khulnasoft-labs/utils v0.0.45 h1:27tqzQqwMWN4mVw18oexYzejfNW8/ApENWHFwawCNmY=
 github.com/khulnasoft-labs/utils v0.0.45/go.mod h1:J7QDXALnOeITXeNZxy5sLwgONEYnuP7873DuLXtSVxo=
 github.com/klauspost/compress v1.4.1/go.mod h1:RyIbtBH6LamlWaDj8nUwkbUhJ87Yi3uG0guNDohfE1A=
