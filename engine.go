@@ -5,7 +5,7 @@ import (
 	"sync"
 
 	"github.com/Knetic/govaluate"
-	mapsutil "github.com/khulnasoft-labs/utils/maps"
+	mapsutil "github.com/khulnasoft-lab/utils/maps"
 )
 
 var (

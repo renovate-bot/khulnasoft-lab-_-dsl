@@ -3,7 +3,7 @@ package dsl
 import (
 	"sync"
 
-	iputil "github.com/khulnasoft-labs/utils/ip"
+	iputil "github.com/khulnasoft-lab/utils/ip"
 )
 
 var (

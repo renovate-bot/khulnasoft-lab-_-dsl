@@ -13,7 +13,7 @@ import (
 
 	"github.com/kataras/jwt"
 	"github.com/pkg/errors"
-	randint "github.com/khulnasoft-labs/utils/rand"
+	randint "github.com/khulnasoft-lab/utils/rand"
 )
 
 const (

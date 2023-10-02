@@ -36,17 +36,17 @@ import (
 	"github.com/hashicorp/go-version"
 	"github.com/kataras/jwt"
 	"github.com/logrusorgru/aurora"
-	"github.com/khulnasoft-labs/dsl/deserialization"
-	"github.com/khulnasoft-labs/dsl/llm"
-	"github.com/khulnasoft-labs/dsl/randomip"
-	"github.com/khulnasoft-labs/gologger"
-	"github.com/khulnasoft-labs/gostruct"
-	"github.com/khulnasoft-labs/mapcidr"
-	jarm "github.com/khulnasoft-labs/utils/crypto/jarm"
-	errors "github.com/khulnasoft-labs/utils/errors"
-	maputils "github.com/khulnasoft-labs/utils/maps"
-	randint "github.com/khulnasoft-labs/utils/rand"
-	stringsutil "github.com/khulnasoft-labs/utils/strings"
+	"github.com/khulnasoft-lab/dsl/deserialization"
+	"github.com/khulnasoft-lab/dsl/llm"
+	"github.com/khulnasoft-lab/dsl/randomip"
+	"github.com/khulnasoft-lab/gologger"
+	"github.com/khulnasoft-lab/gostruct"
+	"github.com/khulnasoft-lab/mapcidr"
+	jarm "github.com/khulnasoft-lab/utils/crypto/jarm"
+	errors "github.com/khulnasoft-lab/utils/errors"
+	maputils "github.com/khulnasoft-lab/utils/maps"
+	randint "github.com/khulnasoft-lab/utils/rand"
+	stringsutil "github.com/khulnasoft-lab/utils/strings"
 	"github.com/spaolacci/murmur3"
 )
 
@@ -60,7 +60,7 @@ var (
 	funcSignatureRegex = regexp.MustCompile(`(\w+)\s*\((?:([\w\d,\s]+)\s+([.\w\d{}&*]+))?\)([\s.\w\d{}&*]+)?`)
 
 	// ErrParsingArg is error when parsing value of argument
-	// Use With Caution: Nuclei ignores this error in extractors(ref: https://github.com/khulnasoft-labs/nuclei/issues/3950)
+	// Use With Caution: Nuclei ignores this error in extractors(ref: https://github.com/khulnasoft-lab/nuclei/issues/3950)
 	ErrParsingArg = errors.New("error parsing argument value")
 
 	DefaultCacheSize                                   = 250

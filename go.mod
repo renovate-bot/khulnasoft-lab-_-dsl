@@ -1,4 +1,4 @@
-module github.com/khulnasoft-labs/dsl
+module github.com/khulnasoft-lab/dsl
 
 go 1.20
 
@@ -8,10 +8,10 @@ require (
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2
 	github.com/hashicorp/go-version v1.6.0
 	github.com/kataras/jwt v0.1.10
-	github.com/khulnasoft-labs/gologger v1.1.11
-	github.com/khulnasoft-labs/gostruct v0.0.0-20230802004306-fba060715063
-	github.com/khulnasoft-labs/mapcidr v1.1.3
-	github.com/khulnasoft-labs/utils v0.0.45
+	github.com/khulnasoft-lab/gologger v1.1.12
+	github.com/khulnasoft-lab/gostruct v0.0.1-beta
+	github.com/khulnasoft-lab/mapcidr v0.0.0-00010101000000-000000000000
+	github.com/khulnasoft-lab/utils v0.0.46
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/pkg/errors v0.9.1
 	github.com/sashabaranov/go-openai v1.15.4
@@ -28,10 +28,12 @@ require (
 	github.com/gorilla/css v1.0.0 // indirect
 	github.com/hdm/jarm-go v0.0.7 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
+	github.com/khulnasoft-lab/blackrock v0.0.3 // indirect
 	github.com/khulnasoft-labs/blackrock v0.0.2 // indirect
+	github.com/khulnasoft-labs/utils v0.0.45 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/mholt/archiver v3.1.1+incompatible // indirect
-	github.com/microcosm-cc/bluemonday v1.0.24 // indirect
+	github.com/microcosm-cc/bluemonday v1.0.25 // indirect
 	github.com/miekg/dns v1.1.55 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
@@ -43,9 +45,11 @@ require (
 	github.com/xi2/xz v0.0.0-20171230120015-48954b6210f8 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/mod v0.11.0 // indirect
-	golang.org/x/net v0.12.0 // indirect
-	golang.org/x/sys v0.10.0 // indirect
+	golang.org/x/net v0.14.0 // indirect
+	golang.org/x/sys v0.12.0 // indirect
 	golang.org/x/tools v0.7.0 // indirect
 	gopkg.in/djherbis/times.v1 v1.3.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/khulnasoft-lab/mapcidr => github.com/khulnasoft-labs/mapcidr v1.1.3

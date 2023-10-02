@@ -6,8 +6,8 @@ import (
 	"net"
 
 	"github.com/pkg/errors"
-	iputil "github.com/khulnasoft-labs/utils/ip"
-	randint "github.com/khulnasoft-labs/utils/rand"
+	iputil "github.com/khulnasoft-lab/utils/ip"
+	randint "github.com/khulnasoft-lab/utils/rand"
 )
 
 const (
