@@ -10,7 +10,7 @@ require (
 	github.com/kataras/jwt v0.1.10
 	github.com/khulnasoft-lab/gologger v1.1.12
 	github.com/khulnasoft-lab/gostruct v0.0.1-beta
-	github.com/khulnasoft-lab/mapcidr v0.0.0-00010101000000-000000000000
+	github.com/khulnasoft-lab/mapcidr v1.1.4
 	github.com/khulnasoft-lab/utils v0.0.46
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/pkg/errors v0.9.1
