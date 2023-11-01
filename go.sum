@@ -34,6 +34,8 @@ github.com/khulnasoft-lab/blackrock v0.0.3 h1:oDLnl6985Po+JhaNDnugD4uofycuMR2BI/
 github.com/khulnasoft-lab/blackrock v0.0.3/go.mod h1:Upg2tduxXxOVf1T6XhG/1RUBVZqORH+Rj9QBmM1oIDU=
 github.com/khulnasoft-lab/gologger v1.1.12 h1:ks7Paf/RcnbvbMkoIIAopkAIDgohQ9tn6Cr/JNvz/Co=
 github.com/khulnasoft-lab/gologger v1.1.12/go.mod h1:AZyjwvwMPR+1uJncgPpU2+UKdSrviPkrl+l9xSLyJnY=
+github.com/khulnasoft-lab/gologger v1.1.13 h1:5HksCw6sHafGdDyy2VTPquYpMsSKX4vsbNf8YdaTT3I=
+github.com/khulnasoft-lab/gologger v1.1.13/go.mod h1:FN+22q/OrX/hDzdIQc4DATKJ7roC7eOszlQRg4FICXs=
 github.com/khulnasoft-lab/gostruct v0.0.1-beta h1:XImYhBJ8FBDm26FSBv0LUvBuGD20Iz+5ZJzKFRvOtlo=
 github.com/khulnasoft-lab/gostruct v0.0.1-beta/go.mod h1:52pNouoki6okMiAkCVClTPYk9GKhYjbEIvIAJTf8mRg=
 github.com/khulnasoft-lab/utils v0.0.46 h1:Hp/LQV8Hf/p2+xh5j4bOlO9TB652YZQGOc9UTJOp1vw=

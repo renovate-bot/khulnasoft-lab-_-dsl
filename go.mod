@@ -8,7 +8,7 @@ require (
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2
 	github.com/hashicorp/go-version v1.6.0
 	github.com/kataras/jwt v0.1.10
-	github.com/khulnasoft-lab/gologger v1.1.12
+	github.com/khulnasoft-lab/gologger v1.1.13
 	github.com/khulnasoft-lab/gostruct v0.0.1-beta
 	github.com/khulnasoft-lab/mapcidr v0.0.0-00010101000000-000000000000
 	github.com/khulnasoft-lab/utils v0.0.46
