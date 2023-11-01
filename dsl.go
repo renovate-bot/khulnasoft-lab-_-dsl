@@ -44,7 +44,6 @@ import (
 	"github.com/khulnasoft-lab/mapcidr"
 	jarm "github.com/khulnasoft-lab/utils/crypto/jarm"
 	errors "github.com/khulnasoft-lab/utils/errors"
-	errorutil "github.com/khulnasoft-lab/utils/errors"
 	maputils "github.com/khulnasoft-lab/utils/maps"
 	randint "github.com/khulnasoft-lab/utils/rand"
 	stringsutil "github.com/khulnasoft-lab/utils/strings"
@@ -819,61 +818,6 @@ func init() {
 			result := constraint.Check(firstParsed)
 			return result, nil
 		}))
-	MustAddFunction(NewWithPositionalArgs("padding", 3, false, func(args ...interface{}) (interface{}, error) {
-		// padding('Test String','A',50) // will pad "Test String" up to 50 characters with "A" as padding byte.
-		bLen := 0
-		switch value := args[2].(type) {
-		case float64:
-			bLen = int(value)
-		case int:
-			bLen = value
-		default:
-			strLen := toString(args[2])
-			floatVal, err := strconv.ParseFloat(strLen, 64)
-			if err != nil {
-				return nil, err
-			}
-			bLen = int(floatVal)
-		}
-		if bLen == 0 {
-			return nil, errorutil.New("invalid padding length")
-		}
-		bByte := []byte(toString(args[1]))
-		if len(bByte) == 0 {
-			return nil, errorutil.New("invalid padding byte")
-		}
-		bData := []byte(toString(args[0]))
-		dataLen := len(bData)
-		if dataLen >= bLen {
-			return toString(bData), nil // Note: if given string is longer than the desired length, it will not be truncated
-		}
-		if dataLen == 0 {
-			// If the initial string is empty, simply create a padded array with the specified length
-			paddedData := make([]byte, bLen)
-			for i := 0; i < bLen; i++ {
-				paddedData[i] = bByte[i%len(bByte)]
-			}
-			return toString(paddedData), nil
-		}
-
-		// Calculate the number of bytes needed for padding
-		paddingLen := (bLen - (dataLen % bLen)) % bLen
-
-		// Create a new byte array with the desired length
-		paddedData := make([]byte, dataLen+paddingLen)
-
-		// Copy the original data into the padded array
-		copy(paddedData, bData)
-
-		// Add padding bytes with the specified padding byte
-		for i := dataLen; i < len(paddedData); i++ {
-			paddedData[i] = bByte[i%len(bByte)]
-		}
-
-		return toString(paddedData), nil
-
-	}))
-
 	MustAddFunction(NewWithSingleSignature("print_debug",
 		"(args ...interface{})",
 		false,
@@ -936,7 +880,7 @@ func init() {
 				return nil, errors.NewWithErr(err).Msgf("invalid start position")
 			}
 			if start > len(argStr) {
-				return nil, errors.New("start position bigger than slice length")
+				return nil, errors.NewWithErr(err).Msgf("start position bigger than slice length")
 			}
 			if len(args) == 2 {
 				return argStr[start:], nil
@@ -944,16 +888,16 @@ func init() {
 
 			end, err := strconv.Atoi(toString(args[2]))
 			if err != nil {
-				return nil, errors.New("invalid end position")
+				return nil, errors.NewWithErr(err).Msgf("invalid end position")
 			}
 			if end < 0 {
-				return nil, errors.New("negative end position")
+				return nil, errors.NewWithErr(err).Msgf("negative end position")
 			}
 			if end < start {
-				return nil, errors.New("end position before start")
+				return nil, errors.NewWithErr(err).Msgf("end position before start")
 			}
 			if end > len(argStr) {
-				return nil, errors.New("end position bigger than slice length start")
+				return nil, errors.NewWithErr(err).Msgf("end position bigger than slice length start")
 			}
 			return argStr[start:end], nil
 		}))
@@ -989,10 +933,10 @@ func init() {
 		return data, nil
 	}))
 	MustAddFunction(NewWithSingleSignature("generate_jwt",
-		"(jsonString, algorithm, optionalSignature string, optionalMaxAgeUnix interface{}) string",
+		"(jsonString, optionalAlgorithm, optionalSignature string, optionalMaxAgeUnix interface{}) string",
 		false,
 		func(args ...interface{}) (interface{}, error) {
-			var algorithm string
+			var optionalAlgorithm string
 			var optionalSignature []byte
 			var optionalMaxAgeUnix time.Time
 
@@ -1001,7 +945,7 @@ func init() {
 
 			argSize := len(args)
 
-			if argSize < 2 || argSize > 4 {
+			if argSize < 1 || argSize > 4 {
 				return nil, ErrInvalidDslFunction
 			}
 			jsonString := args[0].(string)
@@ -1011,46 +955,49 @@ func init() {
 				return nil, err
 			}
 
-			var jwtAlgorithm jwt.Alg
-			alg := args[1].(string)
-			algorithm = strings.ToUpper(alg)
+			var algorithm jwt.Alg
 
-			switch algorithm {
-			case "":
-				jwtAlgorithm = jwt.NONE
-			case "HS256":
-				jwtAlgorithm = jwt.HS256
-			case "HS384":
-				jwtAlgorithm = jwt.HS384
-			case "HS512":
-				jwtAlgorithm = jwt.HS512
-			case "RS256":
-				jwtAlgorithm = jwt.RS256
-			case "RS384":
-				jwtAlgorithm = jwt.RS384
-			case "RS512":
-				jwtAlgorithm = jwt.RS512
-			case "PS256":
-				jwtAlgorithm = jwt.PS256
-			case "PS384":
-				jwtAlgorithm = jwt.PS384
-			case "PS512":
-				jwtAlgorithm = jwt.PS512
-			case "ES256":
-				jwtAlgorithm = jwt.ES256
-			case "ES384":
-				jwtAlgorithm = jwt.ES384
-			case "ES512":
-				jwtAlgorithm = jwt.ES512
-			case "EDDSA":
-				jwtAlgorithm = jwt.EdDSA
-			}
+			if argSize > 1 {
+				alg := args[1].(string)
+				optionalAlgorithm = strings.ToUpper(alg)
 
-			if isjwtAlgorithmNone(alg) {
-				jwtAlgorithm = &algNONE{algValue: alg}
-			}
-			if jwtAlgorithm == nil {
-				return nil, fmt.Errorf("invalid algorithm: %s", algorithm)
+				switch optionalAlgorithm {
+				case "":
+					algorithm = jwt.NONE
+				case "HS256":
+					algorithm = jwt.HS256
+				case "HS384":
+					algorithm = jwt.HS384
+				case "HS512":
+					algorithm = jwt.HS512
+				case "RS256":
+					algorithm = jwt.RS256
+				case "RS384":
+					algorithm = jwt.RS384
+				case "RS512":
+					algorithm = jwt.RS512
+				case "PS256":
+					algorithm = jwt.PS256
+				case "PS384":
+					algorithm = jwt.PS384
+				case "PS512":
+					algorithm = jwt.PS512
+				case "ES256":
+					algorithm = jwt.ES256
+				case "ES384":
+					algorithm = jwt.ES384
+				case "ES512":
+					algorithm = jwt.ES512
+				case "EDDSA":
+					algorithm = jwt.EdDSA
+				}
+
+				if isjwtAlgorithmNone(alg) {
+					algorithm = &algNONE{algValue: alg}
+				}
+				if algorithm == nil {
+					return nil, fmt.Errorf("invalid algorithm: %s", optionalAlgorithm)
+				}
 			}
 
 			if argSize > 2 {
@@ -1071,7 +1018,7 @@ func init() {
 				signOpts = append(signOpts, jwt.MaxAge(duration))
 			}
 
-			return jwt.Sign(jwtAlgorithm, optionalSignature, jsonData, signOpts...)
+			return jwt.Sign(algorithm, optionalSignature, jsonData, signOpts...)
 		}))
 	MustAddFunction(NewWithPositionalArgs("json_minify", 1, false, func(args ...interface{}) (interface{}, error) {
 		var data map[string]interface{}
@@ -1232,7 +1179,6 @@ func NewWithPositionalArgs(name string, numberOfArgs int, cacheable bool, expr g
 		Name:               name,
 		NumberOfArgs:       numberOfArgs,
 		ExpressionFunction: expr,
-		IsCacheable:        cacheable,
 	}
 	return function
 }

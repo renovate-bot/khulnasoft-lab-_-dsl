@@ -115,7 +115,7 @@ func TestGetPrintableDslFunctionSignatures(t *testing.T) {
 	ends_with(str string, suffix ...string) bool
 	equals_any(arg1, arg2 interface{}) interface{}
 	generate_java_gadget(arg1, arg2, arg3 interface{}) interface{}
-	generate_jwt(jsonString, algorithm, optionalSignature string, optionalMaxAgeUnix interface{}) string
+	generate_jwt(jsonString, optionalAlgorithm, optionalSignature string, optionalMaxAgeUnix interface{}) string
 	gzip(arg1 interface{}) interface{}
 	gzip_decode(arg1 interface{}) interface{}
 	hex_decode(arg1 interface{}) interface{}
@@ -139,7 +139,6 @@ func TestGetPrintableDslFunctionSignatures(t *testing.T) {
 	md5(arg1 interface{}) interface{}
 	mmh3(arg1 interface{}) interface{}
 	oct_to_dec(arg1 interface{}) interface{}
-	padding(arg1, arg2, arg3 interface{}) interface{}
 	print_debug(args ...interface{})
 	public_ip() string
 	rand_base(length uint, optionalCharSet string) string
@@ -195,7 +194,6 @@ func TestGetPrintableDslFunctionSignatures(t *testing.T) {
 	require.Equal(t, expected, signatures)
 
 	coloredSignatures := GetPrintableDslFunctionSignatures(false)
-	// nolint
 	require.Contains(t, coloredSignatures, `[93maes_cbc[0m(arg1, arg2, arg3 [38;5;208minterface{}[0m)[38;5;208m interface{}[0m`, "could not get colored signatures")
 }
 
@@ -254,7 +252,6 @@ func TestDslExpressions(t *testing.T) {
 		"line_ends_with('Hii\nHello', 'ii')":                      true, // back quotes do not support escape sequences
 		`regex("H([a-z]+)o", "Hello")`:                            true,
 		`wait_for(1)`:                                             nil,
-		`padding("A","b",3)`:                                      "Abb",
 		`print_debug(1+2, "Hello")`:                               nil,
 		`to_number('4')`:                                          float64(4),
 		`to_string(4)`:                                            "4",
