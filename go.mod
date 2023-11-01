@@ -51,5 +51,3 @@ require (
 	gopkg.in/djherbis/times.v1 v1.3.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-replace github.com/khulnasoft-lab/mapcidr => github.com/khulnasoft-labs/mapcidr v1.1.3
