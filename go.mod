@@ -11,7 +11,7 @@ require (
 	github.com/khulnasoft-lab/gologger v1.1.13
 	github.com/khulnasoft-lab/gostruct v0.0.1-beta
 	github.com/khulnasoft-lab/mapcidr v1.1.4
-	github.com/khulnasoft-lab/utils v0.0.46
+	github.com/khulnasoft-lab/utils v0.0.47
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/pkg/errors v0.9.1
 	github.com/sashabaranov/go-openai v1.16.0
