@@ -7,7 +7,7 @@ require (
 	github.com/Mzack9999/gcache v0.0.0-20230410081825-519e28eab057
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2
 	github.com/hashicorp/go-version v1.6.0
-	github.com/kataras/jwt v0.1.10
+	github.com/kataras/jwt v0.1.12
 	github.com/khulnasoft-lab/gologger v1.1.13
 	github.com/khulnasoft-lab/gostruct v0.0.1-beta
 	github.com/khulnasoft-lab/mapcidr v1.1.4

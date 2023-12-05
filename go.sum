@@ -30,6 +30,8 @@ github.com/json-iterator/go v1.1.12 h1:PV8peI4a0ysnczrg+LtxykD8LfKY9ML6u2jnxaEnr
 github.com/json-iterator/go v1.1.12/go.mod h1:e30LSqwooZae/UwlEbR2852Gd8hjQvJoHmT4TnhNGBo=
 github.com/kataras/jwt v0.1.10 h1:GBXOF9RVInDPhCFBiDumRG9Tt27l7ugLeLo8HL5SeKQ=
 github.com/kataras/jwt v0.1.10/go.mod h1:xkimAtDhU/aGlQqjwvgtg+VyuPwMiyZHaY8LJRh0mYo=
+github.com/kataras/jwt v0.1.12 h1:FHPgTTj5UqjlBye4PA4/oxknCY+kQ9K34XAi8d37glA=
+github.com/kataras/jwt v0.1.12/go.mod h1:xkimAtDhU/aGlQqjwvgtg+VyuPwMiyZHaY8LJRh0mYo=
 github.com/khulnasoft-lab/blackrock v0.0.5 h1:bO0AyWFsl5UR+/L5nY1UaLZ5vNX687AeDsfx7NeB374=
 github.com/khulnasoft-lab/blackrock v0.0.5/go.mod h1:Upg2tduxXxOVf1T6XhG/1RUBVZqORH+Rj9QBmM1oIDU=
 github.com/khulnasoft-lab/gologger v1.1.13 h1:5HksCw6sHafGdDyy2VTPquYpMsSKX4vsbNf8YdaTT3I=
