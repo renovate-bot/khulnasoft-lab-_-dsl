@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/Knetic/govaluate v3.0.0+incompatible
-	github.com/Mzack9999/gcache v0.0.0-20230410081825-519e28eab057
+	github.com/Mzack9999/gcache 12546c6e3f4c
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2
 	github.com/hashicorp/go-version v1.7.0
 	github.com/kataras/jwt v0.1.15
@@ -14,7 +14,7 @@ require (
 	github.com/khulnasoft-lab/utils v0.0.47
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/pkg/errors v0.9.1
-	github.com/sashabaranov/go-openai v1.27.1
+	github.com/sashabaranov/go-openai v1.40.0
 	github.com/spaolacci/murmur3 v1.1.0
 	github.com/stretchr/testify v1.9.0
 	golang.org/x/exp v0.0.0-20231006140011-7918f672742d
